@@ -26,4 +26,4 @@ def test_mejor_estacion_estaciones_vacias():
     estaciones = {}
     estados_cubiertos = ["wa", "id", "nv"]
 
-    assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (0, None)
+    assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (0, "")
