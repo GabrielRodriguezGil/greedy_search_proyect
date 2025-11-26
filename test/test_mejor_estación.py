@@ -3,7 +3,7 @@ import pytest
 
 
 # Primero definimos los estados donde queremos ser escuchados
-estados_solicitados = set(["id","mo","ks","ar","co","sd","wy","nv","or"])
+estados_solicitados = set(["id", "mo", "ks", "ar", "co", "sd", "wy", "nv", "or"])
 
 
 # Estaciones de radio y estados que cubren
@@ -16,7 +16,14 @@ def test_mejor_estacion():
     estaciones["ktwo"] = set(["wa", "id", "mt"])
     estaciones["kfive"] = set(["ca", "az"])
 
+    estados_cubiertos = ["wa", "id", "nv"]
 
-    estados_cubiertos = ["wa","id","nv"]
+    assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (2, "kfive")
 
-    assert buscar_mejor_estacion(estaciones,estados_cubiertos) == (2,"kfive")
+
+@pytest.mark.mejor_estacion_estaciones_vacias
+def test_mejor_estacion_estaciones_vacias():
+    estaciones = {}
+    estados_cubiertos = ["wa", "id", "nv"]
+
+    assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (0, None)
