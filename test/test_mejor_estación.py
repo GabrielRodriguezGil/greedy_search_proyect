@@ -1,4 +1,4 @@
-from scr.buscar_mejor_estacion import buscar_mejor_estacion
+from src.buscar_mejor_estacion import buscar_mejor_estacion
 import pytest
 
 
