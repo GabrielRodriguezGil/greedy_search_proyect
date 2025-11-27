@@ -19,3 +19,11 @@ def test_mejor_estacion():
     estados_cubiertos = ["wa", "id", "nv"]
 
     assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (2, "kfive")
+
+
+@pytest.mark.mejor_estacion_estaciones_vacias
+def test_mejor_estacion_estaciones_vacias():
+    estaciones = {}
+    estados_cubiertos = ["wa", "id", "nv"]
+
+    assert buscar_mejor_estacion(estaciones, estados_cubiertos) == (0, "")
