@@ -1,15 +1,22 @@
 import matplotlib.pyplot as plotlib
 
 
-states= ["kone", "ktwo", "kthree", "kfour", "kfive", "ksix", "kseven", "keight", "knine", "kten", "keleven", "ktwelve"]
-y=[2.5,5.0,7.5,10.0,12.5,15.0,17.5,20.0,22.5]
-x=[0.0,0.5,1.0,1.5,2.0,2.5,3.0]
+states= ['kone', 'ksix', 'keight', 'keleven', 'ktwo', 'kthree', 'knine', 'kten', 'kfive', 'ktwelve']
+num_states_covered = [3, 6, 9, 12, 14, 16, 18, 20, 21, 22]
+gradients = [3, 3, 3, 3, 2, 2, 2, 2, 1, 1]
 
-def plot_data(x, y, states):
+
+def plot_data(num_states_covered, states_needed,gradients):
+
+    plotlib.figure(figsize=(12,6))
+
+    eje_barras = plotlib.gca()
+    eje_barras.bar(states_needed, gradients,color="blue", label="Numero de nuevos estados cubiertos")
     
-    plotlib.bar(states, x, label="Numero de estados cubiertos")
-    plotlib.plot(states, y, marker="o", label="Total estados cubiertos")
+    eje_linea = eje_barras.twinx()
+    eje_linea.plot(states_needed,num_states_covered,color="red", marker="o",label="Todos los estados")
+
     plotlib.show()
 
-plot_data(x, y, states)
+plot_data(num_states_covered, states, gradients)
     
